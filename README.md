@@ -4,10 +4,10 @@ This project provides a backend API for managing products and shopping carts.
 
 ### Technologies Used:
 
-    Spring Boot: Framework for building the API.
-    Spring Data JPA: For database interactions.
-    H2 Database: In-memory database for testing purposes.
-    Gradle: Build tool.
+    Spring Boot
+    Spring Data JPA
+    H2 Database
+    Gradle
 ### Features:
   
 *Product Management*
