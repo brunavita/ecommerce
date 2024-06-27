@@ -46,5 +46,11 @@ This project provides a backend API for managing products and shopping carts.
         Endpoint: POST /carts/{id}/checkout
         Finalizes the shopping cart and displays the total cost.
 
+
+*DB credentials*
+
+        set DB_USERNAME=sa
+        set DB_PASSWORD=password
+        
 ### Notes:
 - The application uses an in-memory H2 database, so data resets on restart.
