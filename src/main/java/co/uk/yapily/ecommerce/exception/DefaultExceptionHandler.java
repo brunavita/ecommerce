@@ -15,7 +15,7 @@ import java.util.Map;
 public class DefaultExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
+    public ResponseEntity<String> handleGlobalException(Exception ex, WebRequest request) {
         String message = ex.getMessage();
         return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }

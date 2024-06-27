@@ -4,13 +4,16 @@ import co.uk.yapily.ecommerce.dto.CartDto;
 import co.uk.yapily.ecommerce.dto.CheckoutResponseDto;
 import co.uk.yapily.ecommerce.model.CartItem;
 import co.uk.yapily.ecommerce.service.ICartService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Validated
 @RequestMapping("/carts")
 public class CartController {
 
@@ -29,14 +32,14 @@ public class CartController {
     }
 
     @PutMapping("/{cartId}")
-    public ResponseEntity<CartDto> modifyCart(@PathVariable Long cartId, @RequestBody List<CartItem> items) {
+    public ResponseEntity<CartDto> modifyCart(@PathVariable Long cartId, @RequestBody List<@Valid CartItem> items) {
         CartDto updatedCartDto = cartService.modifyCart(cartId, items);
-        return ResponseEntity.ok(updatedCartDto);
+        return ResponseEntity.status(200).body(updatedCartDto);
     }
 
     @PostMapping("/{cartId}/checkout")
     public ResponseEntity<CheckoutResponseDto> checkoutCart(@PathVariable Long cartId) {
         CheckoutResponseDto checkedOutCartDto = cartService.checkoutCart(cartId);
-        return ResponseEntity.ok(checkedOutCartDto);
+        return ResponseEntity.status(200).body(checkedOutCartDto);
     }
 }

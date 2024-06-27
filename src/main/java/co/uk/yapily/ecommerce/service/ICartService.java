@@ -6,7 +6,6 @@ import co.uk.yapily.ecommerce.model.CartItem;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface ICartService {
